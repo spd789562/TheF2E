@@ -1,0 +1,247 @@
+global-reset()
+
+:root
+  font-family 'Roboto Meddium'
+  font-size 16px
+
+body
+  background-color $container-color
+
+.nav
+  fixed top 0 right 0 left 0
+  z-index 999
+  text-align center
+  height $nav-bar-height
+  line-height $nav-bar-height
+  background-color $nav-bar-color
+  &-bar
+    display inline-flex
+    max-width $nav-bar-max-width
+    position relative
+    &-task
+      flex 1
+      width $nav-bar-item-width
+      color $nav-bar-text-color
+      font-size $nav-bar-font-size
+      &__active
+        color $nav-bar-text-color__active
+    &-active-bar
+      position absolute
+      bottom 0
+      height $nav-bar-activeBar-height
+      width $nav-bar-item-width
+      background-image linear-gradient(90deg, transparent 30px, $nav-bar-activeBar-color 30px, $nav-bar-activeBar-color 190px, transparent 190px)
+.container
+  background-color $container-color
+  height 100%
+
+  &-main 
+    max-width $container-max-width
+    height 100%
+    margin-top $nav-bar-height
+    margin-left auto
+    margin-right auto
+    padding-top $container-padding-top
+    padding-bottom 2.5rem
+
+    &-left
+      font-style italic
+      font-size 1.5rem
+      color #c8c8c8
+      margin-left 2rem
+      margin-top .5rem
+
+    &-task
+      &-add 
+        width 100%
+        height $task-add-height
+        line-height $task-add-height
+        border $task-add-border-width solid $task-add-border-color
+        border-radius $task-add-border-radius
+        background-color $task-add-color
+        box-sizing border-box
+        padding-left $task-add-padding-left
+
+        &-mark
+          display inline-block
+          size($task-add-mark-size)
+          background-image linear-gradient(0deg, transparent 45%, $task-add-mark-color 45%, $task-add-mark-color 54%, transparent 54%), linear-gradient(90deg, transparent 45%, $task-add-mark-color 45%, $task-add-mark-color 54%, transparent 54%)
+        
+        &-text
+          display inline-block
+          margin-left $task-add-test-margin-left
+          font-family $task-add-font-family
+          font-size $task-add-font-size
+          color $task-add-text-color
+      &-list
+        padding-top $task-list-padding-top
+        width 100%
+
+        &-item
+          position relative
+          width 100%
+          margin-top $task-item-margin-top
+          padding $task-item-padding
+          box-sizing border-box
+
+          &__active
+            background-color $task-item-color__active
+          
+          &-wrapper
+            position relative
+            background-color $task-item-color
+            border-radius $task-item-border-radius
+
+          &:before 
+            content ''
+            absolute left $task-item-hover-mark-pos-left top $task-item-hover-mark-pos-top
+            transform translateY(-50%) 
+            display block
+            border-radius 50%
+            background-color $task-item-hover-mark-color
+            size($task-item-hover-mark-size)
+            box-shadow 0 .5rem 0 $task-item-hover-mark-color, 0 -.5rem 0 $task-item-hover-mark-color
+            opacity 0
+            transition opacity .2s linear
+
+          // 浮動點點
+          &:hover:before
+            opacity 1
+
+          &-row
+            display flex
+            align-items center
+            &:nth-child(1)
+              height $task-item-row-first-height
+              margin-bottom $task-item-row-first-margin-bottom
+              justify-content flex-start
+            &:nth-child(2)
+              height $task-item-row-sceond-height
+              margin-top $task-item-row-second-margin-top
+              padding-left $task-item-row-second-padding-left
+
+          &-input
+            position absolute
+            transform scale(0)
+            &:checked
+              & ~ ^[4]-checkbox
+                background-color $task-item-checkbox-color__active
+              & ~ ^[4]-title
+                color $task-item-title-text-color__active
+                text-decoration line-through
+          &-checkbox
+            display flex
+            align-items center
+            justify-content center
+            size($task-item-checkbox-size)
+            background-color $task-item-checkbox-color
+            border-radius $task-item-checkbox-radius
+            color $task-item-checkbox-text-color
+            cursor pointer
+
+          &-title
+            max-width $task-item-title-width
+            font-size $task-item-title-font-size
+            margin-left $task-item-title-margin-left
+
+          &-important
+          &-edit
+            size($task-item-mark-size)
+            font-size $task-item-mark-size
+          &-important
+            margin-left auto
+            &__active
+              color $task-item-mark__important-color__active
+          &-edit
+            margin-left $task-item-mark-margin-left
+            &__active
+              color $task-item-mark__edit-color__active
+
+          &-content
+            &-mark
+              color $task-item-content-mark-color
+              font-size $task-item-content-mark-size
+              margin-left $task-item-content-mark-margin-left
+              &:first-child
+                margin-left 0
+      &-edit
+        border-top $task-edit-border-top
+        &-content
+          box-sizing border-box
+          padding $task-edit-content-padding
+          
+          &-row
+            margin-top $task-edit-content-row-margin-top 
+            &:first-child
+              margin-top 0
+            &-title
+              display flex
+              &-mark
+                size 1rem
+                font-size 1rem
+              &-text
+                margin-left $task-edit-content-row-title-text-margin-left
+                font-size $task-edit-content-row-title-text-font-size
+            &-container
+              padding-left $task-edit-content-row-container-padding-left
+              padding-top .5rem
+              display flex
+
+              &-date
+              &-time
+              &-comment
+                font-size 1rem
+                padding .5rem 1rem
+                border-radius 0.13rem
+                height 2.19rem
+                width 10.13rem
+                background-color #fff
+                box-sizing border-box
+              &-time
+                margin-left .5rem
+
+              &-file
+                font-size 1rem
+                // &-name
+                &-time
+                  color #757575
+              &-addfile
+                size(2rem)
+                color #fff
+                background-color #c8c8c8
+                border-radius 0.13rem
+                cursor pointer
+                margin-left 1.5rem
+                display flex
+                justify-content center
+                align-items center
+
+              &-comment
+                width 100%
+                height 7.5rem
+              
+
+        &-footer
+          display flex
+          height $task-edit-footer-height
+          line-height $task-edit-footer-height
+
+          &-button
+            flex 1
+            display flex
+            align-items center
+            justify-content center
+            font-size $task-edit-footer-font-size
+
+            &:hover
+              opacity 0.5
+
+            &__cancle
+              background-color $task-edit-footer-cancle-color
+              color $task-edit-footer-cancle-text-color
+            &__save
+              background-color $task-edit-footer-save-color
+              color $task-edit-footer-save-text-color
+            
+            &-text 
+              width $task-edit-footer-text-width

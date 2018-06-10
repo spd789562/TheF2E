@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "next build"
   },
   "author": "tomaszmularczyk(tomasz.mularczyk89@gmail.com)",
   "dependencies": {
@@ -14,8 +15,10 @@
     "next-redux-wrapper": "^1.0.0",
     "nib": "^1.1.2",
     "poststylus": "^1.0.0",
+    "ramda": "^0.25.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-fontawesome": "^1.6.1",
     "react-redux": "^5.0.1",
     "recompose": "^0.27.1",
     "redux": "^3.6.0",

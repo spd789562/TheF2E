@@ -1,0 +1,26 @@
+{
+  "name": "with-redux-observable",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "tomaszmularczyk(tomasz.mularczyk89@gmail.com)",
+  "dependencies": {
+    "@zeit/next-stylus": "^0.1.0",
+    "autoprefixer": "^8.6.2",
+    "next": "^6.0.3",
+    "next-redux-wrapper": "^1.0.0",
+    "nib": "^1.1.2",
+    "poststylus": "^1.0.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-redux": "^5.0.1",
+    "recompose": "^0.27.1",
+    "redux": "^3.6.0",
+    "rupture": "^0.7.1",
+    "stylus": "^0.54.5"
+  },
+  "license": "ISC"
+}

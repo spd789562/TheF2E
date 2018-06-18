@@ -6,7 +6,7 @@ import TaskItem from '../../components/week1/task-item'
 import '../../assets/week1/index.styl'
 
 export default () => (
-  <div className="container">
+  <div className="container__week1">
     <div className="nav">
       <div className="nav-bar">
         <div className="nav-bar-task nav-bar-task__active">My Tasks</div>

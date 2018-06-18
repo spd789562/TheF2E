@@ -1,0 +1,309 @@
+global-reset()
+
+.container__week2
+  background-color #f2f2f2
+  min-height 100vmax
+  font-family Roboto, "Helvetica Neue", sans-serif
+
+  .nav
+    fixed top 0 left 0 right 0
+    z-index 999
+    +media-md()
+      background-color $nav-bar-color
+
+    &-bar
+      max-width $nav-bar-container-width__lg
+      width 100%
+      margin-left auto
+      margin-right auto
+      display flex
+      align-items center
+      flex-wrap wrap
+
+      &-logo
+      &-search
+        box-sizing border-box
+
+      &-logo
+        background-color $nav-bar-logo-color
+        height $nav-bar-logo-hieght
+        line-height $nav-bar-logo-hieght
+        flex-basis 100%
+        font-size 1.5rem
+        color $nav-bar-logo-font-color
+        text-align center
+        +media-md()
+          height $nav-bar-logo-hieght__lg
+          padding-left $nav-bar-logo-padding-left
+          line-height $nav-bar-logo-hieght__lg
+          flex-basis 18.75rem
+          flex-grow unset
+          text-align-last left
+      &-search
+        width 100%
+        border none
+        background-color #ebebeb
+        font-size $nav-bar-search-font-size
+        &::placeholder
+          font-style italic
+          color #9b9b9b
+          background-color #ebebeb
+        +media-md()
+          background-color $nav-bar-logo-color 
+          &::placeholder
+            background-color $nav-bar-logo-color 
+            color $nav-bar-search-placeholder-font-color
+        &-container
+          position relative
+          padding $nav-bar-search-padding
+          margin 0 2.5rem
+          border-bottom $nav-bar-search-border-bottom 
+          width $nav-bar-search-width
+          color #000
+          font-size $nav-bar-search-font-size
+          flex-basis 100%
+          box-sizing border-box
+
+          +media-md()
+            flex-basis unset
+            background-color $nav-bar-logo-color
+            color $nav-bar-search-font-color
+            border-bottom-color #fff
+
+          &::before
+            absolute left 0
+            font-family FontAwesome
+            content "\f002"
+  .main
+    padding-top 8.5rem
+    max-width $nav-bar-container-width__lg
+    width 100%
+    margin-left auto
+    margin-right auto
+    display flex
+    flex-direction column
+    +media-md()
+      flex-direction row
+      padding-top 5.75rem
+    &-aside
+      width 100%
+      background-color #ebebeb
+      +media-md()
+        flex-grow unset
+        flex-shrink 0
+        flex-basis 18.75rem
+      &-list
+        &-item
+          position relative
+          box-sizing border-box
+          overflow hidden
+          +media-md()
+            border-top 1px solid #9b9b9b
+            &:first-child
+              border-top none
+          &-mark
+            absolute top 1.5rem right 2.5rem
+            size(1rem)
+            background-image linear-gradient(0deg, transparent 45%, #9B9B9B 45% ,#9B9B9B 55%, transparent 55%), linear-gradient(90deg, transparent 45%, #9B9B9B 45% ,#9B9B9B 55%, transparent 55%)
+            +media-md()
+              visibility hidden
+          &-title
+            padding-left 2.5rem
+            padding-right 2.5rem
+            display block
+            line-height 4rem
+            font-size 1.25rem
+            border-top 1px solid #9b9b9b
+            font-weight 700
+            +media-md()
+              border-top none
+          &-content
+            padding-left 2.5rem
+            padding-right 2.5rem
+            height 0
+            transition height .3s linear
+            will-change height
+            overflow hidden
+            box-sizing border-box
+            +media-md()
+              height unset
+              padding-bottom 1.5rem
+            &-select
+              width 100%
+              height 2.5rem
+              font-size 1rem
+              border none
+            &-label
+              display flex
+              margin-bottom .5rem
+              &-title
+                display flex
+                align-items center
+                justify-content flex-end
+                flex-basis 2.5rem
+                flex-shrink 0
+                padding-right .7rem
+              &-input
+                width 100%
+                height 2.5rem
+                font-size 1rem
+                padding 0.7rem
+                border none
+                box-sizing border-box
+            &-radiusList
+              &-item
+                display block
+                margin-top 0.7rem
+                &-checkbox
+                  position relative
+                  display inline-block
+                  size(1rem)
+                  border-radius 2px
+                  background-color #fff
+                &-value
+                  margin-left .4rem
+                  font-size 1rem
+                  line-height 1.2rem
+                &-input
+                  position absolute
+                  transform scale(0)
+                  &:checked
+                    &~.main-aside-list-item-content-radiusList-item
+                      &-checkbox
+                        background-color $main-purple
+                        &:before
+                          font-family FontAwesome
+                          content "\f00c"
+                          color #fff
+                          font-size .8rem
+                          padding-left .1rem
+
+          &-input
+            position absolute
+            transform scale(0)
+            &:checked
+              &~.main-aside-list-item
+                &-mark
+                  background-image linear-gradient(0deg, transparent 45%, #9B9B9B 45% ,#9B9B9B 55%, transparent 55%)
+                &-title
+                  background-image linear-gradient(#dedede 0%, transparent 10px);
+                  border-top-color transparent
+                &-content
+                  height unset
+                  padding-bottom 1.5rem
+    &-section
+      flex 1
+      padding 1.5rem 2.5rem
+      padding-bottom 5rem
+      position relative
+      &-result
+        line-height 1.75rem
+        font-size 1.5rem
+        &-number
+          color $main-purple__light
+      &-tags
+        margin-top 0.5rem
+        clearfix()
+        &-item
+          float left
+          position relative
+          height 2.2rem
+          line-height 2.2rem
+          border 1px solid $main-purple__light
+          border-radius 6.25rem
+          color $main-purple__light
+          padding-left 1rem
+          padding-right 2.4rem
+          margin-left .5rem
+          font-style italic
+          &:first-child
+            margin-left 0
+          &:before
+            absolute right .9rem
+            font-family FontAwesome
+            content "\f05c"
+            font-style normal
+          &:hover
+            color #fff
+            background-color $main-purple__light
+      &-posts
+        margin-top 1.5rem      
+        &-item
+          width 100%
+          margin-top 1.5rem
+          display flex
+          flex-wrap wrap
+          +media-lg()
+            flex-wrap nowrap
+          &-image
+            background-position center center
+            background-size cover
+            height 12.25rem
+            width 100%
+            +media-lg()
+              size(13.75rem)
+              flex-basis 13.75rem
+              flex-shrink 0
+          &-info
+            box-sizing border-box
+            padding 1.5rem 1.25rem
+            background-color #fff
+            &-title
+              font-size 1.5rem
+              line-height 2.25rem
+              color $main-purple__light
+              font-weight 700
+            &-content
+              margin-top .75rem
+              line-height 1.5rem
+              height 3.1rem
+              overflow hidden
+            &-author
+              margin-top 1rem
+              display flex
+              line-height 1.2rem
+            &-raise
+              font-weight 700
+            &-tag
+              height 1.5rem
+              line-height 1.5rem
+              margin-left 1.25rem
+              border-radius 6.25rem
+              padding-left 1rem
+              padding-right 1rem
+              background-color #d7d7d7
+              font-style italic
+              color #fff
+            &-where
+            &-time
+              position relative
+              padding-left 1.25rem
+              color #9b9b9b
+              &:before
+                absolute left 0
+                font-family FontAwesome
+                color #000
+            &-where
+              &:before
+                content '\f041'
+            &-time
+              margin-left 1.25rem
+              &:before
+                content '\f073'
+      &-page
+        absolute bottom 0 right 2.5rem
+        display flex
+        &-btn
+          background-color #fff
+          size(2.56rem, 2.63rem)
+          border-left 1px solid #f2f2f2
+          color $main-purple__light
+          display flex
+          justify-content center
+          align-items center
+          &:hover
+            background-color #f2f2f2
+            color $main-purple__light
+          &__active
+            background-color $main-purple__light
+            color #fff

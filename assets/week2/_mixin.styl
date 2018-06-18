@@ -1,0 +1,13 @@
+media-up($width)
+  @media (min-width: $width)
+    {block}
+
+media-sm()
+  +media-up(576px)
+    {block}
+media-md()
+  +media-up(768px)
+    {block}
+media-lg()
+  +media-up(1200px)
+    {block}
